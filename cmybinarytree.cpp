@@ -1,7 +1,5 @@
 #include "cmybinarytree.h"
 
-
-
 #ifdef DEBUG
 #include <new>
 #include<iostream>
@@ -207,7 +205,7 @@ bool_t CMyBinaryTree<T>::removeNode(CMyBinaryTree::CNode a_oItem)
                 }
                 _fResult = true; 
             }
-            /// last case, element to remove has no a right child and a left child
+            /// last case, element to remove has no children
             ///----------------------------------------------------
             else
             {

@@ -54,100 +54,28 @@ private:
         CNode** m_ppParent;
     };
 
-    ////////////////////////////////////////
-    /// \brief m_uiItemsCounter
-    ///
     uint64_t m_uiItemsCounter;
-
-    ////////////////////////////////////////
-    /// \brief m_pRootElement
-    ///
     CNode* m_pRootElement;
 
-    ////////////////////////////////////////
-    /// \brief add new node using recursive
-    /// \param a_pCurrentNode
-    /// \param a_oItem
-    /// \return 
-    ///
     bool_t addNodeR(CMyBinaryTree::CNode *&a_pCurrentNode, CNode a_oItem);
-    
-    ////////////////////////////////////////
-    /// \brief add new node using iteration
-    /// \param a_pCurrentNode
-    /// \param a_oItem
-    /// \return 
-    ///
     bool_t addNodeI(CNode **a_pCurrentNode, CNode a_oItem);
-    
-    ////////////////////////////////////////
-    /// \brief remove node
-    /// \param a_oItem
-    /// \return 
-    ///
     bool_t removeNode(CNode a_oItem);
     
-    ////////////////////////////////////////
-    /// \brief Method returns pointer to a parent node if value was found in any child nodes.
-    /// If value was not found, method will return 0. Method using recursion.
-    /// \param a_pRootNode
-    /// \param a_oItem
-    /// \return 
-    ///
+    // Method returns pointer to parent node. 0 if not found
+    // Method use recursion.
     sItemToRemWithParent findNodeWithParentR(CNode **a_pRootNode, CNode a_oItem); 
     
-    ////////////////////////////////////////
-    /// \brief Method returns pointer to a parent node if value was found in any child nodes.
-    /// If value was not found, method will return 0. Method using iteration.
-    /// \param a_pRootNode
-    /// \param a_oItem
-    /// \return 
-    ///
+    // Method returns pointer to a parent node. 0 if not found.
+    // Method use iterations.
     sItemToRemWithParent findNodeWithParentI(CNode **a_pRootNode, CNode a_oItem);
 
 public:
-    
-    ////////////////////////////////////////
-    /// \brief class constructor
-    ///
     CMyBinaryTree();
-
-    ////////////////////////////////////////
-    /// \brief class destructor
-    ///
     ~CMyBinaryTree();
 
-    ////////////////////////////////////////
-    /// \brief push item into the tree
-    /// \param a_oItem
-    /// \param a_eMethod
-    /// \return 
-    /// 
-    /// Note: Recursion is slower and need more memory, it was wrote just for research
-    ///
     bool_t push(T a_oItem, int a_eMethod = METHOD_ITERATION);
-
-    ////////////////////////////////////////
-    /// \brief remove item from the tree
-    /// \param a_oItem
-    /// \return 
-    ///
     bool_t remove(T a_oItem);
-
-    ////////////////////////////////////////
-    /// \brief find item in the tree
-    /// \param a_oItem
-    /// \param a_eMethod
-    /// \return 
-    ///
-    /// Note: Recursion is slower and need more memory, it was wrote just for research 
-    /// 
     bool_t find(T a_oItem, int a_eMethod = METHOD_ITERATION);
-
-    ////////////////////////////////////////
-    /// \brief get number of items it the tree
-    /// \return 
-    ///
     uint64_t getItemsNumber();
 
 #ifdef DEBUG

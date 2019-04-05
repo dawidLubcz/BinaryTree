@@ -1,3 +1,7 @@
+/*
+* Simple tests.
+*/
+
 #include <iostream>
 #include <cstdarg>
 #include <sstream>
@@ -9,9 +13,6 @@
 
 using namespace std;
 
-///////////////////////////////////////////////
-/// \brief The CLogger class
-//////////////////////////////////////////////
 class CLogger: public ILogger
 {
 public:
@@ -66,11 +67,6 @@ public:
 };
 CLogger g_oCLogger = CLogger();
 
-/////////////////////////////////////////////////
-/// \brief printRes
-/// \param a_fRes
-/// \param a_cName
-////////////////////////////////////////////////
 void printRes(bool a_fRes, const char* a_cName)
 {
     using namespace std;
@@ -79,9 +75,6 @@ void printRes(bool a_fRes, const char* a_cName)
 
 #define PRINT_RES(a) printRes(a,__func__)
 
-//////////////////////////////////////////////
-/// \brief The CTest class
-//////////////////////////////////////////////
 class CTest
 {
 public:
@@ -111,12 +104,10 @@ public:
     }
 };
 
-//////////////////////////////////////
 const int g_iCount = 10000;
 bool Test_1_adding_finding_items_I();
 bool Test_2_adding_finding_items_R();
 bool Test_3_removing_items();
-/////////////////////////////////////
 
 int main()
 {    
@@ -131,24 +122,13 @@ int main()
     return 0;
 }
 
-/////////////////////////////////////
-/// \brief Test_1_adding_finding_items_I
-/// \return 
-/////////////////////////////////////
 bool Test_1_adding_finding_items_I()
 {
     CElapsedTime oETime = CElapsedTime(&g_oCLogger);
-    /////////////////////////////////////
-    /// Preconditions
-    //////////////////////////////////// 
    
     CMyBinaryTree<CTest> tree; // tree
     const int liczbaElementow = g_iCount;  
     bool fResult = true;
-    
-    /////////////////////////////////////
-    /// Test case
-    //////////////////////////////////// 
     
     for(int i=0; i<liczbaElementow;i++)
     {
@@ -168,24 +148,13 @@ bool Test_1_adding_finding_items_I()
     return fResult;
 }
 
-////////////////////////////////////
-/// \brief Test_2_adding_finding_items_R
-/// \return 
-////////////////////////////////////
 bool Test_2_adding_finding_items_R()
 {
     CElapsedTime oETime = CElapsedTime(&g_oCLogger);
-    /////////////////////////////////////
-    /// Preconditions
-    //////////////////////////////////// 
     
     CMyBinaryTree<CTest> tree;
     const int liczbaElementow = g_iCount;    
     bool fResult = true;
-
-    /////////////////////////////////////
-    /// Test case
-    //////////////////////////////////// 
     
     for(int i=0; i<liczbaElementow;i++)
     {
@@ -212,10 +181,6 @@ bool Test_removing_items_right_and_left();
 bool Test_removing_items_foreign_item();
 bool Test_removing_last_item();
 
-/////////////////////////////////////////
-/// \brief Test_3_removing_items
-/// \return 
-/////////////////////////////////////////
 bool Test_3_removing_items()
 {
     CElapsedTime oETime = CElapsedTime(&g_oCLogger);
@@ -232,15 +197,8 @@ bool Test_3_removing_items()
     return fResult;
 }
 
-/////////////////////////////////////////
-/// \brief Test_removing_items_no_right_child
-/// \return 
-/////////////////////////////////////////
 bool Test_removing_items_no_right_child()
 {
-    /////////////////////////////////////
-    /// Preconditions
-    //////////////////////////////////// 
     CMyBinaryTree<CTest> tree;
     const int liczbaElementow = 5;
     bool fResult = true;
@@ -258,15 +216,8 @@ bool Test_removing_items_no_right_child()
     return fResult;
 }
 
-////////////////////////////////////////
-/// \brief Test_removing_items_no_left_child
-/// \return 
-////////////////////////////////////////
 bool Test_removing_items_no_left_child()
 {
-    /////////////////////////////////////
-    /// Preconditions
-    //////////////////////////////////// 
     bool fResult = true;
     // build the tree
     CMyBinaryTree<CTest> tree;
@@ -282,15 +233,8 @@ bool Test_removing_items_no_left_child()
     return fResult;
 }
 
-/////////////////////////////////////////
-/// \brief Test_removing_items_right_and_left
-/// \return 
-/////////////////////////////////////////
 bool Test_removing_items_right_and_left()
 {
-    /////////////////////////////////////
-    /// Preconditions
-    //////////////////////////////////// 
     bool fResult = true;
 
     CMyBinaryTree<CTest> tree3;
@@ -305,21 +249,12 @@ bool Test_removing_items_right_and_left()
     tree3.push(ob9);
     tree3.push(ob5);
     
-    /////////////////////////////////////////////////
-    
     PRINT_RES(fResult);
     return fResult;
 }
 
-///////////////////////////////////////
-/// \brief Test_removing_items_foreign_item
-/// \return 
-///////////////////////////////////////
 bool Test_removing_items_foreign_item()
 {
-    /////////////////////////////////////
-    /// Preconditions
-    //////////////////////////////////// 
     CMyBinaryTree<CTest> tree;
     const int liczbaElementow = 5;
     bool fResult = true;
@@ -337,22 +272,11 @@ bool Test_removing_items_foreign_item()
     return (fResult == false);
 }
 
-////////////////////////////////////////
-/// \brief Test_removing_last_item
-/// \return 
-////////////////////////////////////////
 bool Test_removing_last_item()
 {
-    /////////////////////////////////////
-    /// Preconditions
-    //////////////////////////////////// 
     CMyBinaryTree<CTest> tree;
     const int liczbaElementow = g_iCount;
     bool fResult = true;
-    
-    /////////////////////////////////////
-    /// Test case
-    //////////////////////////////////// 
     
     for(int i=0; i<liczbaElementow;i++)
     {
